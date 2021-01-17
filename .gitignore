@@ -1,0 +1,6 @@
+*.pdf
+*.a
+a.out
+test.c
+*.o
+
