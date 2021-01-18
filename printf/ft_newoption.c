@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_newoption.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: younghch <younghch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/17 13:59:35 by younghch          #+#    #+#             */
-/*   Updated: 2021/01/18 15:31:46 by younghch         ###   ########.fr       */
+/*   Created: 2021/01/18 15:29:09 by younghch          #+#    #+#             */
+/*   Updated: 2021/01/18 15:39:04 by younghch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "./libft/libft.h"
+#include "ft_printf.h"
 
-typedef	struct		s_options
+t_options	*ft_newoption()
 {
-	char	minus;
-	char	zero;
-	int		width;
-	int		precision;
-	char	type;
-}					t_options;
-t_options	*ft_newoption();
+	t_options	*new;
 
-#endif
+	new = malloc(sizeof(t_options));
+	new->minus = 0;
+	new->zero = 0;
+	new->precision = 0;
+	new->width = 0;
+	new->type = 0;
+	return (new);
+}
