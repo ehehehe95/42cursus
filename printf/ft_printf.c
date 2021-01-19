@@ -6,75 +6,81 @@
 /*   By: younghch <younghch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:50:49 by younghch          #+#    #+#             */
-/*   Updated: 2021/01/18 15:37:54 by younghch         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:59:37 by younghch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-const	char	*g_str;
-va_list			p_arg;
+va_list			g_ap;
+int				g_count;
+int				g_idx;
 
-int		get_arg_num(const char * format)
+void	handle_width_prec(const char *str, t_options *options)
 {
-	int flag;
-	int count;
-
-	count  = 0;
-	flag = 0;
-	while (*format)
+	if (options->prec == 0)
 	{
-		if (flag && *format == '%')
-			flag = 0;
-		else if (*format == '%')
-			flag = 1;
-		else if (flag)
+		if (str[g_idx] == '*')
+			options->prec = va_arg(g_ap, int);
+		else
 		{
-			count++;
-			flag = 0;
+			while (ft_isdigit(str[g_idx]))
+				options->prec = options->prec * 10 + str[g_idx++] - '0';
+			g_idx--;
 		}
-		format++;
 	}
-	return (count);
+	else
+	{
+		if (str[g_idx] == '*')
+			options->width = va_arg(g_ap, int);
+		else
+		{
+			while (ft_isdigit(str[g_idx]))
+				options->width = options->width * 10 + str[g_idx++] - '0';
+			g_idx--;
+		}
+	}
 }
 
-void	handle_format()
+void	handle_format(const char *str)
 {
-	t_options *options;
+	t_options	*options;
 
-	options = ft_newoption();
-	g_str++;
-	while (*g_str != '-' && *g_str != '0')
+	options = new_option();
+	while(!ft_strchr(TYPE, str[g_idx]) && str[g_idx] != '%')
 	{
-		if(*g_str == '-')
-			options->minus = 1;
-		else
+		if (str[g_idx] == '0')
 			options->zero = 1;
-		g_str++;
+		else if (str[g_idx] == '-')
+			options->minus = 1;
+		else if (str[g_idx] == '.')
+			options->prec = 0;
+		else if (ft_isdigit(str[g_idx]) || str[g_idx] == '*')
+			handle_width_prec(str, options);
+		g_idx++; 
 	}
-	
+	options->type = str[g_idx];
+	print_format(options, g_ap);
 }
 
 int		ft_printf(const char *str, ...)
 {
 	int			n_arg;
-	int			count;
 
-	g_str = str;
-	n_arg = get_arg_num(g_str);
-	va_start(p_arg, n_arg);
-	count = 0;
-	while (*g_str)
+	g_count = 0;
+	g_idx = 0;
+	va_start(g_ap, str);
+	while (str[g_idx])
 	{
-		if (*g_str == '%')
+		if (str[g_idx] == '%')
 		{
-			handle_format();
+			g_idx++;
+			handle_format(str);
 			continue ;
 		}
-		ft_putchar_fd(*g_str++, 1);
-		count++;
+		ft_putchar_fd(str[g_idx++], 1);
+		g_count++;
 	}
-
-	return (0);
+	return (g_count);
 }
