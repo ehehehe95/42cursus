@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   options.c                                          :+:      :+:    :+:   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: younghch <younghch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 15:29:09 by younghch          #+#    #+#             */
-/*   Updated: 2021/01/19 16:01:16 by younghch         ###   ########.fr       */
+/*   Created: 2021/01/20 16:32:46 by younghch          #+#    #+#             */
+/*   Updated: 2021/01/20 16:33:06 by younghch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_options	*new_option()
+int		print_pointer(t_options *options, va_list ap)
 {
-	t_options	*new;
-
-	new = malloc(sizeof(t_options));
-	new->minus = 0;
-	new->zero = 0;
-	new->prec = -1;
-	new->width = -1;
-	new->type = 0;
-	return (new);
 }
-
-t_options
