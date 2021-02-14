@@ -58,25 +58,25 @@ Network Address Translation is used to convert private IP to public IP in extern
  
 12. What is a DHCP server and the DHCP protocol
 
- 
+ Dynamic Host Configuration Protocol is a protocol used to allocate IP on devices. DHCP server allocate IP to client when requested, and after the IP is allocated client can start TCP/IP communication.
 
 13. What is a DNS server and the DNS protocol
 
-
+ Domain Name System is converting human readable string address to IP address. DNS server matches hostnames to IP address. Computer first look at the local DNS cache before requesting IP address, If it is not on it contacts the recursive DNS servers. If it's still not there query the authoritative DNS servers.
 
 14. What are the rules to make 2 devices communicate using IP addresses
 
-
+TCP/ IP
 
 15. How does routing work with IP
 
-
+Via router. Router look up at its LAN table and check whether the destination is in the same network. If it's not than lookup Network table and find network address. And send packet through optimal path using routing table.
 
 16. What is a default gateway for routing
 
-
+ It is the first router that  data is sent when communicating hosts in other network.
 
 17. What is a port from an IP point of view and what is it used for when connecting to another device
 
-
+ Port work as logical address where data would be sent. With only IP without a port, only one process can communicate each time.
 
