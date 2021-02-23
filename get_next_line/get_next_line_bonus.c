@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: younghch <younghch@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 08:42:07 by younghch          #+#    #+#             */
-/*   Updated: 2021/01/28 08:42:09 by younghch         ###   ########.fr       */
+/*   Created: 2021/02/18 18:46:27 by younghch          #+#    #+#             */
+/*   Updated: 2021/02/18 18:46:30 by younghch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static	char	*g_residues[OPEN_MAX] = {0};
 
