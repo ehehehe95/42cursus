@@ -7,7 +7,7 @@ Summary: The aim of this project is to make you code a function that returns a l
 ending with a newline, read from a ﬁle descriptor.
 
 
-## ~~Description~~
+## Description
 
 use read, malloc, free Write a function which returns a line read from a file descriptor, without the newline.
 
