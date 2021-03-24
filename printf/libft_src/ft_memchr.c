@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   options.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younghch <younghch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younghoun <younghoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 15:29:09 by younghch          #+#    #+#             */
-/*   Updated: 2021/01/19 16:01:16 by younghch         ###   ########.fr       */
+/*   Created: 2020/12/27 14:39:34 by younghoun         #+#    #+#             */
+/*   Updated: 2021/01/13 10:50:40 by younghch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_options	*new_option()
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_options	*new;
+	size_t				i;
+	unsigned	char	*temp;
 
-	new = malloc(sizeof(t_options));
-	new->minus = 0;
-	new->zero = 0;
-	new->prec = -1;
-	new->width = -1;
-	new->type = 0;
-	return (new);
+	i = 0;
+	temp = (unsigned char*)s;
+	while (i < n)
+	{
+		if (temp[i] == (unsigned char)c)
+			return (&temp[i]);
+		i++;
+	}
+	return (0);
 }
-
-t_options

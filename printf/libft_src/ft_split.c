@@ -6,7 +6,7 @@
 /*   By: younghoun <younghoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 10:24:24 by younghch          #+#    #+#             */
-/*   Updated: 2021/01/09 17:36:10 by younghch         ###   ########.fr       */
+/*   Updated: 2021/01/10 13:19:44 by younghch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static	int		get_length(const	char *str, char c)
 	len = 0;
 	idx = 0;
 	flag = 1;
-	while (str[idx])
+	while (str[idx] && c != 0)
 	{
 		if (str[idx++] == c)
 		{
@@ -39,6 +39,8 @@ static	int		get_length(const	char *str, char c)
 
 static	int		get_start_end(const	char *str, char c, int idx, int flag)
 {
+	if (c == 0)
+		return (0);
 	if (flag == 0)
 	{
 		while (str[idx] == c)
@@ -82,7 +84,7 @@ char			**ft_split(char const *str, char c)
 	if ((ans = malloc(sizeof(char*) * (get_length(str, c) + 1))) == 0)
 		return (0);
 	s_idx = get_start_end(str, c, 0, 0);
-	while (s_idx != -1)
+	while (s_idx != -1 && c != 0)
 	{
 		idx = get_start_end(str, c, s_idx, 1);
 		if ((ans[j] = malloc(idx - s_idx + 1)) == 0)
