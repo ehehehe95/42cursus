@@ -1,3 +1,24 @@
+# Netwhat
+
+_Summary: This project is an introduction to network problematics_
+
+# Introduction
+
+Netwhatwill allow you to discover the network and to learn about its inner workings.
+This will allow you to understand how some things work that you already use in your
+everyday life.
+
+# General instructions
+
+Netwhatis a multiple choice project. This project will evaluate your network knowledge.
+You can start by reading network lessons on the internet. After that you can use online
+quizes to test your knowledge. Once you’ve done that and you feel that you are ready to
+pass our quiz, you can go to: netwhat.42.fr.
+
+# Mandatory part
+
+- first of all, you should know a few things:
+
 1. What is an IP address
 
  An Internet Protocol address is a number assgined to distinguish computers in the network which uses the Internet Protocol for communication. There are two versions of IP, IPv4 and IPv6.
@@ -80,3 +101,9 @@ Via router. Router look up at its LAN table and check whether the destination is
 
  Port work as logical address where data would be sent. With only IP without a port, only one process can communicate each time.
 
+- Go to the website: netwhat.42.fr. This site will provide access to the network
+    quiz.
+- Once connected, you will have access to the quiz interface. You can only pass it
+    once per try, and you will have to retry the project to be able to retry the quiz.
+    At the end an encrypted key will be generated. This key will be used during your
+    evaluation (see Turn-in and peer-evaluation).
