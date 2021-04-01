@@ -234,12 +234,3 @@ of your choice.
 - Rotate the point of view with the mouse.
 
 - Weapons and bad guys to fight!
-
-
-
-
-
-Figure VI.5: Another example of the bonus part with another weapon choice and with the player
-looking at the ceilling.
-
-
